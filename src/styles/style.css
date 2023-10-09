@@ -88,6 +88,8 @@ p, ul, ol, li {
 main table {
   display: block;
   margin: 15px auto;
+  border: 1px solid #ECB50D;
+  border-radius: 20px;
   border-collapse: collapse;
   width: fit-content;
   overflow: auto;
@@ -98,9 +100,16 @@ main tbody {
 }
 
 main table td {
-  border: 1px solid #ECB50D;
   padding: 10px;
   vertical-align: middle;
+}
+
+main table tr:not(:last-of-type) td {
+  border-bottom: 1px solid #ECB50D;
+}
+
+main table tr td {
+  border-left: 1px solid #ECB50D;
 }
 
 .table_container {
@@ -255,6 +264,7 @@ header > div:first-of-type {
 .buttons > a {
   padding: 10px 15px;
   color: #E4E9ED;
+  border-radius: 17px;
   background-color: #ECB50D;
   text-decoration: none;
   font-weight: bold;
@@ -324,6 +334,7 @@ p, h1, h2, h3, li, span, tr, td, i {
   margin: 20px 0;
   position: relative;
   left: 50%;
+  border-radius: 20px;
   transform: translateX(-50%);
 }
 
@@ -388,24 +399,13 @@ footer > p {
 }
 
 .homepage {
-  width: 55%;
-}
-
-.destek, .kayit {
-  width: 250px;
+  width: 40%;
+  border-radius: 20px;
 }
 
 .license {
-  width: 220px;
-}
-
-.options {
-  width: 350px;
-}
-
-.mobile {
-  width: 200px;
-  border-radius: 27px;
+  border-radius: 20px;
+  width: 300px;
 }
 
 .logo {
@@ -413,8 +413,19 @@ footer > p {
 }
 
 .homepage_container {
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 20px;
+}
+
+.text_container {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text_container > p {
+  width: 50%;
 }
 
 ::marker {
@@ -446,7 +457,7 @@ footer > p {
 
 .list > li {
   width: calc(33% - 15px);
-  margin-left: 0;
+  margin: 0;
 }
 
 .adres_container {
@@ -455,6 +466,21 @@ footer > p {
 
 .adres {
   width: 450px;
+  border-radius: 20px;
+}
+
+.adresi, .bahis {
+  border-radius: 20px;
+  width: 40%;
+}
+
+.oyun, .vpn {
+  width: 33%;
+  border-radius: 20px;
+}
+
+.adresi_container {
+  flex-direction: row-reverse;
 }
 
 @media (max-width: 1200px) {
@@ -464,7 +490,7 @@ footer > p {
 }
 
 @media (max-width: 1024px) {
-  .adres_container {
+  .adres_container, .bahis_container, .oyun_container {
     flex-direction: column;
   }
 
@@ -484,14 +510,23 @@ footer > p {
     width: 250px;
   }
 
-  .license {
+  .license, .bahis, .oyun {
     width: 100%;
   }
+
+  .license {
+    max-width: 300px;
+  }
+
 }
 
 @media (max-width: 768px) {
-  .homepage_container {
+  .homepage_container, .text_container {
     flex-direction: column;
+  }
+
+  .text_container > p {
+    width: 100%;
   }
 
   .list > li {
@@ -513,7 +548,7 @@ footer > p {
     width: 100%;
   }
 
-  .adres {
+  .adres, .adresi, .vpn {
     width: 100%;
   }
 
